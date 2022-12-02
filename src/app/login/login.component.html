@@ -1,0 +1,28 @@
+<body>
+    <img src="../../assets/facebook_logo.svg" alt="">
+
+    <form #form="ngForm" (ngSubmit)=" submitted()">
+        <div>
+            <p class="head">Log in to Facebook</p>
+        </div>
+        <div>
+            <input type="text" placeholder="Email address" #Email="ngModel" name="email" [(ngModel)]="data.email"
+                required />
+            <p style="color: red;" *ngIf="Email.touched && (Email.errors?.['required'] || Email.invalid) ">Please Enter
+                Your Email-ID*</p>
+        </div>
+        <div>
+            <input type="password" placeholder="Password" #Password="ngModel" name="password"
+                [(ngModel)]="data.password" minlength="8" maxlength="12" required="@" />
+            <p style="color: red;" *ngIf="Password.touched && (Password.errors?.['required'] || Password.invalid)">Enter
+                Your Correct Password*</p>
+        </div>
+        <div>
+            <button [routerLink]="['/home']" [disabled]="form.invalid" class="button">Log in</button>
+        </div>
+        <div>
+            <a [routerLink]="['/signup']" class="link"> Sign up for Facebook</a>
+        </div>
+    </form>
+</body>
+<router-outlet></router-outlet>

@@ -1,0 +1,36 @@
+<body>
+    <img src="../../assets/facebook_logo.svg" alt="logo">
+    <form #form="ngForm" (ngSubmit)="submitted()">
+        <div>
+            <h1 class="head">Create a new account</h1>
+            <p class="head">It's quick and easy</p>
+        </div>
+        <hr>
+        <div>
+            <input type="text" placeholder="First name" name="firstName" #FirstName="ngModel" [(ngModel)]="data.firstName" required />
+            <p style="color: red;" *ngIf="FirstName.touched && (FirstName.errors?.['required'] && FirstName.invalid) ">
+                Please Enter Your FirstName*</p>
+        </div>
+        <!-- {{data.email}} -->
+        <div>
+            <input type="text" placeholder="Last name" #LastName="ngModel" name="lastName" [(ngModel)]="data.lastName" required />
+            <p style="color: red;" *ngIf="LastName.touched && (LastName.errors?.['required'] || LastName.invalid )" >Please Enter Your LastName*</p>
+        </div> 
+        <div>
+            <input type="email" placeholder="Email address" #Email="ngModel" name="email" [(ngModel)]="data.email" required />
+            <p style="color: red;" *ngIf="Email.touched && (Email.errors?.['required'] || Email.invalid)">Please Enter Your Email-ID*</p>
+        </div>
+        <div>
+            <input type="text" placeholder="New password" #Password="ngModel" name="password" [(ngModel)]="data.password" minlength="8" maxlength="12" required />
+            <p style="color: red;"  *ngIf="Password.touched && (Password.errors?.['required'] || Password.invalid)">Create Your Password Atleast 8 Characters*</p>
+        </div>
+        <div>
+            <button [routerLink]="['/login']" class="button" [disabled]="form.invalid" >Sign Up</button>
+        </div>
+        <div>
+            <a [routerLink]="['/login']" class="link">Already have an account?</a>
+        </div>
+    </form>
+</body>
+
+<router-outlet></router-outlet>
