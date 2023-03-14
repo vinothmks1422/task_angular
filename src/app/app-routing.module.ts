@@ -29,7 +29,7 @@ const routes: Routes = [{
   component: LoginComponent
 },
 {
-  path: "home/logout/signup",
+  path: 'home/logout/signup',
   component: SignupComponent
 },
 {
