@@ -1,4 +1,4 @@
-<body>
+<div>
     <img src="../../assets/facebook_logo.svg" alt="">
 
     <form #form="ngForm" (ngSubmit)=" submitted()">
@@ -13,7 +13,7 @@
         </div>
         <div>
             <input type="password" placeholder="Password" #Password="ngModel" name="password"
-                [(ngModel)]="data.password" minlength="8" maxlength="12" required="@" />
+                [(ngModel)]="data.password" minlength="8" maxlength="12" required />
             <p style="color: red;" *ngIf="Password.touched && (Password.errors?.['required'] || Password.invalid)">Enter
                 Your Correct Password*</p>
         </div>
@@ -24,5 +24,4 @@
             <a [routerLink]="['/signup']" class="link"> Sign up for Facebook</a>
         </div>
     </form>
-</body>
-<router-outlet></router-outlet>
+</div>
